@@ -35,5 +35,8 @@
     "url": "https://github.com/Ghosterzz/discord-ghost-transcript/issues"
   },
   "homepage": "https://github.com/Ghosterzz/discord-ghost-transcript#readme",
-  "dependencies": {}
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsdom": "^16.6.0"
+  }
 }
