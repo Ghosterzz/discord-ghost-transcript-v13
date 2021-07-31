@@ -14,7 +14,9 @@
 
 ``` javascript
  // destructure the package
-const fetchTranscript = require("discord-ghost-transcript");
+const { fetchTranscript } = require("discord-ghost-transcript");
+// add this package as well
+const Discord = require('discord.js')
 
 // here is how you use it
 
@@ -24,8 +26,6 @@ const fetchTranscript = require("discord-ghost-transcript");
 // returns buffer
 
 //example
-const { fetchTranscript } = require("discord-ghost-transcript");
-const Discord = require('discord.js')
 
 module.exports = {
     name: 'transcript',
