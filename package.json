@@ -1,18 +1,17 @@
 {
   "name": "discord-ghost-transcript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Message Transcript for Discord Created by GhosterZz_#0001",
   "engines": {
     "node": "<=7.8.0"
   },
   "files": [
     "index.js",
-    "README.md", 
+    "README.md",
     "fetchTranscript.js",
     "index.d.ts",
     "index.html",
     "template.html"
-
   ],
   "main": "index.js",
   "scripts": {
