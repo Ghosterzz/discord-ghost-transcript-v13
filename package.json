@@ -7,7 +7,12 @@
   },
   "files": [
     "index.js",
-    "README.md"
+    "README.md", 
+    "fetchTranscript.js",
+    "index.d.ts",
+    "index.html",
+    "template.html"
+
   ],
   "main": "index.js",
   "scripts": {
