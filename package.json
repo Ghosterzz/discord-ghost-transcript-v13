@@ -1,0 +1,35 @@
+{
+  "name": "discord-ghost-transcript",
+  "version": "1.0.0",
+  "description": "A Message Transcript for Discord Created by GhosterZz_#0001",
+  "engines": {
+    "node": "<=7.8.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghosterzz/discord-ghost-transcript.git"
+  },
+  "keywords": [
+    "ticket",
+    "transcript",
+    "message",
+    "collector",
+    "ghost",
+    "fetch"
+  ],
+  "author": "GhosterZz_",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghosterzz/discord-ghost-transcript/issues"
+  },
+  "homepage": "https://github.com/Ghosterzz/discord-ghost-transcript#readme",
+  "dependencies": {}
+}
