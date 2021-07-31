@@ -6,7 +6,8 @@
 
 ## Code Samples
 
-> // destructure the package
+> js
+// destructure the package
 const { fetchTransript } = require("reconlx");
 
 // here is how you use it
@@ -27,6 +28,7 @@ module.exports = {
     },
 };
 // it will fetch 5 messages in the current channel. 
+>
 
 ## Installation
 
