@@ -4,6 +4,12 @@
 
 😊 A easy Transcript Message collector that sends in html format. 
 
+
+## Installation
+
+> npm i discord-ghost-transcript 
+
+
 ## Code Samples
 
 ``` javascript
@@ -18,18 +24,19 @@ const fetchTranscript = require("discord-ghost-transcript");
 // returns buffer
 
 //example
+const { fetchTranscript } = require("discord-ghost-transcript");
+const Discord = require('discord.js')
+
 module.exports = {
-    name: "transcript",
-    run: async (client, message) => {
+    name: 'transcript',
+    description: 'Fetches a html trascript from discord',
+    async execute(message){
+        const channel = message.channel
         fetchTranscript(channel, message, 5).then((data) => {
-            const file = new MessageAttachment(data, "index.html");
+            const file = new Discord.MessageAttachment(data, "index.html");
             message.channel.send(file);
         });
-    },
-};
+    }
+}
 // it will fetch 5 messages in the current channel. 
 ```
-
-## Installation
-
-> npm i discord-ghost-transcript 
