@@ -6,7 +6,7 @@
 
 ## Code Samples
 
-> js
+```javascript
 // destructure the package
 const { fetchTransript } = require("reconlx");
 
@@ -28,8 +28,10 @@ module.exports = {
     },
 };
 // it will fetch 5 messages in the current channel. 
->
+```
 
 ## Installation
 
-> npm i discord-ghost-transcript
+``` javascript
+npm i discord-ghost-transcript
+```
