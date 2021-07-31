@@ -6,9 +6,9 @@
 
 ## Code Samples
 
-```javascript
-// destructure the package
-const { fetchTransript } = require("reconlx");
+``` javascript
+ // destructure the package
+const fetchTranscript = require("discord-ghost-transcript");
 
 // here is how you use it
 
@@ -21,7 +21,7 @@ const { fetchTransript } = require("reconlx");
 module.exports = {
     name: "transcript",
     run: async (client, message) => {
-        fetchTranscript(message, 5).then((data) => {
+        fetchTranscript(channel, message, 5).then((data) => {
             const file = new MessageAttachment(data, "index.html");
             message.channel.send(file);
         });
@@ -32,6 +32,4 @@ module.exports = {
 
 ## Installation
 
-``` javascript
-npm i discord-ghost-transcript
-```
+> npm i discord-ghost-transcript 
