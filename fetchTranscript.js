@@ -79,7 +79,7 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                               else {
                                   let msgNode = document.createElement('span');
                                   let img = document.createElement('img');
-                                  img.setAttribute('src', msg.attachment.first().proxyURL)
+                                  img.setAttribute('src', msg.attachments.first().proxyURL)
                                   let textNode = document.createTextNode(msg.content);
                                   msgNode.append(textNode);
                                   messageContainer.appendChild(msgNode);
