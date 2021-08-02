@@ -78,12 +78,24 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                               }
                               else {
                                   let msgNode = document.createElement('span');
-                                  let img = document.createElement('img');
-                                  img.setAttribute('src', msg.attachments.first().proxyURL)
+                                  if (msg.attachments){
+                                    
+                                    const files = getImageLinks(msg.attachments);
+                                    if (files[0] !== undefined){
+                                        let img = document.createElement('img');
+                                        img.setAttribute('src', files[0])
+                                        messageContainer.appendChild(img)
+                                    }
+                                    console.log(files[0])
+                                  } 
+                                  
+                                  if (msg.content){
                                   let textNode = document.createTextNode(msg.content);
                                   msgNode.append(textNode);
                                   messageContainer.appendChild(msgNode);
-                                  messageContainer.appendChild(img);
+                                  }
+
+                                  
                               }
                               parentContainer.appendChild(messageContainer);
                               await fs.appendFile(require('path').join(__dirname, 'index.html'), parentContainer.outerHTML, function(err) {
@@ -102,3 +114,7 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
   }
   
   module.exports = fetchTranscript;
+  function getImageLinks(attachments) {
+  const valid = /^.*(gif|png|jpg|jpeg)$/g;
+  return attachments.array().filter((attachment) => valid.test(attachment.url)).map((attachment) => attachment.url);
+}
