@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ghosterzz/discord-ghost-transcript.git"
+    "url": "git+https://github.com/Ghosterzz/discord-ghost-transcript-v13.git"
   },
   "keywords": [
     "ticket",
@@ -29,9 +29,9 @@
   "author": "GhosterZz_",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ghosterzz/discord-ghost-transcript/issues"
+    "url": "https://github.com/Ghosterzz/discord-ghost-transcript-v13/issues"
   },
-  "homepage": "https://github.com/Ghosterzz/discord-ghost-transcript#readme",
+  "homepage": "https://github.com/Ghosterzz/discord-ghost-transcript-v13#readme",
   "dependencies": {
     "fs": "0.0.1-security",
     "jsdom": "^16.6.0"
