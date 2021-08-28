@@ -6,15 +6,15 @@
 
 
 ## Installation
-
-> npm i discord-ghost-transcript 
-
+``` javascript
+npm i discord-ghost-transcript-v13
+```
 
 ## Code Samples
 
 ``` javascript
  // destructure the package
-const { fetchTranscript } = require("discord-ghost-transcript");
+const { fetchTranscript } = require("discord-ghost-transcript-v13");
 // add this package as well
 const Discord = require('discord.js')
 
