@@ -6,15 +6,15 @@
 
 
 ## Installation
-
-> npm i discord-ghost-transcript 
-
+```
+npm i discord-ghost-transcript-v13
+```
 
 ## Code Samples
 
 ``` javascript
  // destructure the package
-const { fetchTranscript } = require("discord-ghost-transcript");
+const { fetchTranscript } = require("discord-ghost-transcript-v13");
 // add this package as well
 const Discord = require('discord.js')
 
@@ -39,8 +39,3 @@ module.exports = {
     }
 }
 // it will fetch 5 messages in the current channel. 
-<<<<<<< HEAD
-```
-=======
-```
->>>>>>> b87a6a83fe3f4562c0a374c68db476e4f3385c28
