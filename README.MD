@@ -6,7 +6,7 @@
 
 
 ## Installation
-``` javascript
+```
 npm i discord-ghost-transcript-v13
 ```
 
