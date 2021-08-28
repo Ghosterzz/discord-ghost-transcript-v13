@@ -21,7 +21,7 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
           if(channelMessages)
               messageCollection = messageCollection.concat(channelMessages);
       }
-      let msgs = messageCollection.array().reverse();
+      
       return new Promise(async(ful) => {
           await fs.readFile(require('path').join(__dirname, 'template.html'), 'utf8', async function(err, data) {
               if(data) {
@@ -51,13 +51,13 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                       info.appendChild(info__metadata)
                       await fs.appendFile(require('path').join(__dirname, 'index.html'), info.outerHTML, async function(err) {
                           if(err) return console.log(err)
-                          msgs.forEach(async msg => {
+                          messageCollection.forEach(async msg => {
                               let parentContainer = document.createElement("div");
                               parentContainer.className = "parent-container";
                               let avatarDiv = document.createElement("div");
                               avatarDiv.className = "avatar-container";
                               let img = document.createElement('img');
-                              img.setAttribute('src', msg.author.displayAvatarURL());
+                              img.setAttribute('src', msg.author.displayAvatarURL({dynamic: true}));
                               img.className = "avatar";
                               avatarDiv.appendChild(img);
               
@@ -81,12 +81,13 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                                   if (msg.attachments){
                                     
                                     const files = getImageLinks(msg.attachments);
-                                    if (files[0] !== undefined){
+                                    if (files[0] !== undefined ){
                                         let img = document.createElement('img');
+                                        console.log(files[0])
                                         img.setAttribute('src', files[0])
                                         messageContainer.appendChild(img)
                                     }
-                                    console.log(files[0])
+                                    console.log({files: files})
                                   } 
                                   
                                   if (msg.content){
@@ -113,8 +114,8 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
       })
   }
   
-  module.exports = fetchTranscript;
+   module.exports = fetchTranscript;
   function getImageLinks(attachments) {
   const valid = /^.*(gif|png|jpg|jpeg)$/g;
-  return attachments.array().filter((attachment) => valid.test(attachment.url)).map((attachment) => attachment.url);
+  return attachments.filter((attachment) => valid.test(attachment.url)).map((attachment) => attachment.url);
 }
