@@ -2,7 +2,7 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
     if(!message) throw new ReferenceError('GhostTranscript => "message" is not defined')
       if(!numberOfMessages) throw new ReferenceError('GhostTranscript => "numberOfMessages" is not defined')
       if(typeof numberOfMessages !== "number") throw new SyntaxError('GhostTranscript => typeof "numberOfMessages" must be a number')
-      if(numberOfMessages >= 100) throw new RangeError('GhostTranscript => "numberOfMessages" must be under 100 messages')
+      if(numberOfMessages >= 101) throw new RangeError('GhostTranscript => "numberOfMessages" must be under 100 messages')
       const jsdom = require('jsdom');
       const fs = require('fs')
       const Discord = require('discord.js')
