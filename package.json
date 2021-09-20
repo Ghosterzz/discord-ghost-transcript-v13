@@ -27,6 +27,10 @@
     "fetch"
   ],
   "author": "GhosterZz_",
+  "contributors": [{
+    "name": "Vitu2002",
+    "url": "https://github.com/Vitu2002"
+  }],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ghosterzz/discord-ghost-transcript/issues"
