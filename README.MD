@@ -10,6 +10,13 @@
 npm i discord-ghost-transcript-v13
 ```
 
+
+##Support Server
+```
+https://discord.gg/gTmh5TcEwR
+
+```
+
 ## Code Samples
 
 ``` javascript
@@ -22,8 +29,6 @@ const Discord = require('discord.js')
 
 // template
 // fetchTranscript(message: any, numberOfMessages: number, sendToAuthor: boolean)
-
-// returns buffer
 
 //example
 
