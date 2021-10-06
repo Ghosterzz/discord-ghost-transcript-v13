@@ -13,7 +13,8 @@ npm i discord-ghost-transcript-v13
 
 ## Support Server
 ```
-https://discord.gg/gTmh5TcEwR
+
+[GhostCodes JS Support](https://discord.gg/gTmh5TcEwR)
 
 ```
 
