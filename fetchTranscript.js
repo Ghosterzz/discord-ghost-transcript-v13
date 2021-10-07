@@ -1,23 +1,38 @@
-async function fetchTranscript(channel ,message, numberOfMessages) {
+
+async function fetchTranscript(message, options) {
     if(!message) throw new ReferenceError('GhostTranscript => "message" is not defined')
-      if(!numberOfMessages) throw new ReferenceError('GhostTranscript => "numberOfMessages" is not defined')
-      if(typeof numberOfMessages !== "number") throw new SyntaxError('GhostTranscript => typeof "numberOfMessages" must be a number')
-      if(numberOfMessages >= 101) throw new RangeError('GhostTranscript => "numberOfMessages" must be under 100 messages')
+      if(!options.numberOfMessages) throw new ReferenceError('GhostTranscript => "numberOfMessages" is not defined')
+      if(typeof options.numberOfMessages !== "number") throw new SyntaxError('GhostTranscript => typeof "numberOfMessages" must be a number')
+      if(options.numberOfMessages >= 100) throw new RangeError('GhostTranscript => "numberOfMessages" must be under 100 messages')
+      if(typeof options !== "object") throw new SyntaxError('GhostTranscript => typeof "options" must be a object')
       const jsdom = require('jsdom');
       const fs = require('fs')
       const Discord = require('discord.js')
       const { JSDOM } = jsdom;
       const dom = new JSDOM();
       const document = dom.window.document;
+      const moment = require('moment');
+      //const reverseArray = require('reverse-array');
+      const Options = {
+          numberOfMessages: options.numberOfMessages || '6',
+          channel: options.channel || interaction.channel ,
+          //inverseArray: options.inverseArray || false,
+          dateFormat: options.dateFormat || 'E, d MMM yyyy HH:mm:ss Z',
+          dateLocale: options.dateLocale || 'en',
+          customTitle: options.customTitle || '',
+          customDescription: options.customDescription || `Transcripted ${numberOfMessages} messages From: ${channel.name}`
+      }
+
+      moment.locale(Options.dateLocale);
       let messageCollection = new Discord.Collection();
-      let channelMessages = await channel.messages.fetch({
-          limit: numberOfMessages
+      let channelMessages = await message.channel.messages.fetch({
+          limit: options.numberOfMessages
       }).catch(err => console.log(err));
       messageCollection = messageCollection.concat(channelMessages);
   
       while(channelMessages.size === 100) {
           let lastMessageId = channelMessages.lastKey();
-          channelMessages = await channel.messages.fetch({ limit: numberOfMessages, before: lastMessageId }).catch(err => console.log(err));
+          channelMessages = await message.channel.messages.fetch({ limit: options.numberOfMessages, before: lastMessageId }).catch(err => console.log(err));
           if(channelMessages)
               messageCollection = messageCollection.concat(channelMessages);
       }
@@ -32,7 +47,12 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                       iconClass.className = 'info__guild-icon-container';
                       let guild__icon = document.createElement('img')
                       guild__icon.className = 'info__guild-icon'
-                      guild__icon.setAttribute('src', message.guild.iconURL())
+                    
+                      if (message.guild.iconURL()) {
+                        guild__icon.setAttribute('src', message.guild.iconURL() )
+                      } else {
+                        guild__icon.setAttribute('src', 'https://cdn.discordapp.com/attachments/878008751855112192/895637636671229953/icon_clyde_blurple_RGB.png')
+                      }
                       iconClass.appendChild(guild__icon)
                       info.appendChild(iconClass)
                       
@@ -41,16 +61,23 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
       
                       let guildName = document.createElement('div')
                       guildName.className = 'info__guild-name'
-                      let gName = document.createTextNode(message.guild.name);
+                      let gName = document.createTextNode(Options.customTitle);
                       guildName.appendChild(gName)
                       info__metadata.appendChild(guildName)
                       let messagecount = document.createElement('div')
                       messagecount.className = 'info__channel-message-count'
-                      messagecount.appendChild(document.createTextNode(`Transcripted ${numberOfMessages} messages From: ${channel.name}`))
+                      messagecount.appendChild(document.createTextNode(Options.customDescription))
                       info__metadata.appendChild(messagecount)
                       info.appendChild(info__metadata)
                       await fs.appendFile(require('path').join(__dirname, 'index.html'), info.outerHTML, async function(err) {
                           if(err) return console.log(err)
+
+                          //if (options.inverseArray) messageCollection = messageCollectio
+                         // Object.entries({messageCollection})
+                          
+ 
+
+
                           messageCollection.forEach(async msg => {
                               let parentContainer = document.createElement("div");
                               parentContainer.className = "parent-container";
@@ -65,7 +92,7 @@ async function fetchTranscript(channel ,message, numberOfMessages) {
                               let messageContainer = document.createElement('div');
                               messageContainer.className = "message-container";
                               let nameElement = document.createElement("span");
-                              let name = document.createTextNode(msg.author.tag + " " + msg.createdAt.toDateString() + " " + msg.createdAt.toLocaleTimeString() + " EST");
+                              let name = document.createTextNode(msg.author.tag + " ・ " + moment(msg.createdAt).format(Options.dateFormat));
                               nameElement.appendChild(name);
                               messageContainer.append(nameElement);
               
