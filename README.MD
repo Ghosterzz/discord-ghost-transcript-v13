@@ -18,17 +18,9 @@ npm i discord-ghost-transcript-v13
 ## Code Samples
 
 ``` javascript
- // destructure the package
+ // required packages
 const { fetchTranscript } = require("discord-ghost-transcript-v13");
-// add this package as well
-const Discord = require('discord.js')
-
-// here is how you use it
-
-// template
-// fetchTranscript(message: any, numberOfMessages: number, sendToAuthor: boolean)
-
-// returns buffer
+const { MessageAttachment } = require("discord.js");
 
 //example
 
