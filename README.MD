@@ -18,7 +18,7 @@ npm i discord-ghost-transcript-v13
 
 With Options, you can customize the title, description, date format, date location and the order of messages
 
-<<<<<<< HEAD
+
 ``` javascript
 const { fetchTranscript } = require("discord-ghost-transcript-v13");
 const { MessageAttachment } = require("discord.js");
