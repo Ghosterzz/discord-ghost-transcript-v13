@@ -8,19 +8,10 @@
 ```
 npm i discord-ghost-transcript-v13
 ```
-## Support Server
 
-<<<<<<< HEAD
-[GhostCodes JS Support](https://discord.gg/gTmh5TcEwR)
+<<<<<<<
+[Support Server](https://discord.gg/gTmh5TcEwR)
 =======
-
-## Support Server
-
-[GhostCodes JS Support](https://discord.gg/gTmh5TcEwR)
-
-
-## Code Samples
->>>>>>> b354b599d588ab4685fc42cc7a7a7e282ddba93c
 
 
 ### Options
@@ -32,8 +23,7 @@ With Options, you can customize the title, description, date format, date locati
 const { fetchTranscript } = require("discord-ghost-transcript-v13");
 const { MessageAttachment } = require("discord.js");
 
-=======
->>>>>>> b354b599d588ab4685fc42cc7a7a7e282ddba93c
+
 //example
 module.exports = {
     name: 'transcript',
