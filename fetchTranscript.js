@@ -20,7 +20,8 @@ async function fetchTranscript(message, options) {
           dateFormat: options.dateFormat || 'E, d MMM yyyy HH:mm:ss Z',
           dateLocale: options.dateLocale || 'en',
           customTitle: options.customTitle || '',
-          customDescription: options.customDescription || `Transcripted ${numberOfMessages} messages From: ${channel.name}`
+          customDescription: options.customDescription || `Transcripted ${numberOfMessages} messages From: ${channel.name}`,
+          guild__icon: options.guild__icon
       }
 
       moment.locale(Options.dateLocale);
@@ -48,8 +49,8 @@ async function fetchTranscript(message, options) {
                       let guild__icon = document.createElement('img')
                       guild__icon.className = 'info__guild-icon'
                     
-                      if (message.guild.iconURL()) {
-                        guild__icon.setAttribute('src', message.guild.iconURL() )
+                      if (options.guild__icon) {
+                        guild__icon.setAttribute('src', options.guild__icon )
                       } else {
                         guild__icon.setAttribute('src', 'https://cdn.discordapp.com/attachments/878008751855112192/895637636671229953/icon_clyde_blurple_RGB.png')
                       }
