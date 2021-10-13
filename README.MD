@@ -36,6 +36,7 @@ module.exports = {
             dateLocale: "pt-br", // moment locale, default is "en"
             customTitle: "Transcripted channel", // title, default is your guild name
             customDescription: "I have no idea what i'm doing", // description, default is `Transcripted ${numberOfMessages} messages From: ${channel.name}`
+            guild__icon: message.guild.iconURL(), // use interaction.guild.iconURL() for slash command
         }).then((data) => {
             const file = new Discord.MessageAttachment(data, "index.html");
             message.channel.send(file);
